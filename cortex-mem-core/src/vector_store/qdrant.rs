@@ -41,6 +41,7 @@ impl QdrantVectorStore {
                     .clone()
                     .or_else(|| std::env::var("QDRANT_API_KEY").ok()),
             )
+            .skip_compatibility_check()
             .build()
             .map_err(|e| Error::VectorStore(e))?;
 
@@ -75,6 +76,7 @@ impl QdrantVectorStore {
                     .clone()
                     .or_else(|| std::env::var("QDRANT_API_KEY").ok()),
             )
+            .skip_compatibility_check()
             .build()
             .map_err(|e| Error::VectorStore(e))?;
 
